@@ -22,6 +22,7 @@ app.use(
 
 app.use(checkForSession)
 //swag
+app.use(express.static(`${__dirname}/../build`));
 app.get("/api/swag", swagController.read)
 //auth
 app.post("/api/login", authController.login)
@@ -35,4 +36,4 @@ app.delete("/api/cart/:id", cartController.delete)
 
 app.get("/api/search", searchController.search)
 
-app.listen(3001, () => console.log("Port 3001"))
+app.listen(3000, () => console.log("Port 3001"))
